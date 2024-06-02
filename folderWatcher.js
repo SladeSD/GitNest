@@ -6,7 +6,7 @@ const fs = require('fs')
 
 const octokit = new Octokit({ auth: 'github_token' }) // replace the token
 
-const projektiDir = "E:\\projekti"
+const projektiDir = "" // where to watch for new projects
 
 function isValidName(name) {
   return /^[a-z0-9_-]+$/.test(name) && !/^[0-9_-]/.test(name)
