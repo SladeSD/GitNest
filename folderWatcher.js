@@ -4,12 +4,12 @@ const chokidar = require('chokidar')
 const simpleGit = require('simple-git')
 const fs = require('fs')
 
-const octokit = new Octokit({ auth: '' }) // github token
+const octokit = new Octokit({ auth: 'github_token' }) // replace the token
 
 const projektiDir = "E:\\projekti"
 
 function isValidName(name) {
-  return /^[a-z0-9_-]+$/.test(name) && !/^[0-9_-]/.test(name) // regex magija
+  return /^[a-z0-9_-]+$/.test(name) && !/^[0-9_-]/.test(name)
 }
 
 const watcher = chokidar.watch(projektiDir, { ignored: /^\./, persistent: true, depth: 0, ignoreInitial: true })
@@ -25,7 +25,7 @@ watcher.on('addDir', async (path) => {
   try {
     const response = await octokit.repos.createForAuthenticatedUser({
       name: folderName,
-      auto_init: true // ovo je za README
+      auto_init: true // readme
     });
     console.log(`GitHub repository created: ${response.data.html_url}`)
 
