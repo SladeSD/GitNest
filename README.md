@@ -30,4 +30,4 @@ Set the *projektiDir* variable in the script to the path of the directory you wa
 <h3>Run the application</h3>
 
 ```bash
-node GitNest.js
+node folderWatcher.js
